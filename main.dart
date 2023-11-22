@@ -1,5 +1,7 @@
 import 'dart:io';
 
+enum Cor { Vermelho, Verde, Azul, Amarelo, Laranja }
+
 void main() {
   var nome = 'Cleiton';
   var idade = 20;
@@ -207,6 +209,51 @@ void main() {
   print("Não tem PONTEIRO \n");
   print("Não é necessário liberar memória manualmente, como em C ou C++. A variável será automaticamente coletada pelo coletor de lixo quando não estiver mais em uso. \n");
   print("\n");
+
+
+  // TRY CATCH
+  print("### TRY CATCH ###\n");
+  try {
+    stdout.write("Informe o valor 1 para o dividendo: ");
+    final numero1 = int.parse(stdin.readLineSync()!);
+
+    stdout.write("Informe o valor 2 para o divisor: ");
+    final numero2 = int.parse(stdin.readLineSync()!);
+    
+    if (numero2 == 0) {
+      throw Exception('Divisão por zero não é permitida!');
+    }
+
+    final resultado = numero1 / numero2;
+    print('Resultado da divisão: ${resultado.toStringAsFixed(2)}');
+  } catch (e) {
+    print('Ocorreu uma exceção: $e');
+  }
+  print("\n");
+  
+  // ENUM
+  print("### ENUM ###\n");
+  Cor minhaCor = Cor.Azul;
+
+  switch (minhaCor) {
+    case Cor.Vermelho:
+      print("Minha cor favorita é vermelho.");
+      break;
+    case Cor.Verde:
+      print("Minha cor favorita é verde.");
+      break;
+    case Cor.Azul:
+      print("Minha cor favorita é azul.");
+      break;
+    case Cor.Amarelo:
+      print("Minha cor favorita é amarelo.");
+      break;
+    case Cor.Laranja:
+      print("Minha cor favorita é laranja.");
+      break;
+    default:
+      print("Eu não tenho uma cor favorita.");
+  }
   
 }
 
